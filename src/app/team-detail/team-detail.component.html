@@ -1,0 +1,208 @@
+<div class="card team" style="width: 100%;">
+  <div class="row">
+    <div class="col-12">
+      <img src="{{ team.strTeamBanner }}" class="card-img" alt="...">
+    </div>
+  </div>
+  <div class="row p-2">
+    <div class="col-md-2 image">
+      <img src="{{ team.strTeamBadge }}" class="card-img" alt="...">
+    </div>
+    <div class="col-md-6">
+      <div class="card-body">
+        <h3 class="card-title">{{team.strTeam}}</h3>
+        <p class="card-text text-muted font-weight-bolder">Redes sociales:</p>
+        <div class="btn-group mr-2" role="group">
+          <button type="button" class="btn">
+            <a href="{{team.strWebsite}}">
+              Web Site
+            </a>
+          </button>
+          <button type="button" class="btn">
+            <a href="{{team.strFacebook}}">Facebook </a>
+          </button>
+          <button type="button" class="btn">
+            <a href="{{team.strTwitter}}">Twitter</a>
+          </button>
+          <button type="button" class="btn">
+            <a href="{{team.strInstagram}}">Instagram</a>
+          </button>
+          <button type="button" class="btn">
+            <a href="{{team.strYoutube}}">Youtube</a>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-md-12 mx-3">
+      <p class="card-text text-justify">{{team.strDescriptionEN}}</p>
+    </div>
+  </div>
+  <div class="row mt-3 mx-3">
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-6">
+          <img src="{{ team.strTeamJersey }}" class="card-img" alt="...">
+        </div>
+        <div class="col-6">
+          <div class="row">
+            <div class="col-12">
+              <img src="{{ team.strStadiumThumb }}" class="card-img" alt="...">
+            </div>
+            <div class="col-12">
+              <img src="{{ team.strTeamLogo }}" class="card-img" alt="...">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h5 class="text-white bg-primary py-3 text-center my-2">Estadio: {{team.strStadium}} </h5>
+      <p class="card-text text-justify">{{team.strStadiumDescription}}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h5 class="text-white bg-primary py-3 text-center  my-2">Jugadores</h5>
+      <div *ngFor="let player of players.player" style="width: 20%; display: inline-block;">
+        <div class="card">
+          <img src="{{ player.strThumb }}" class="card-img-top player-img" alt="...">
+          <div class="card-body">
+            <h5 class="card-title text-center">{{player.strPlayer}}</h5>
+            <button class="btn btn-outline-primary" style="width: 100%;" data-toggle="modal"
+              attr.data-target="{{'#modal'+ player.idPlayer}}">Detalles</button>
+          </div>
+          <!-- Modal -->
+          <div class="modal fade" id="{{'modal'+ player.idPlayer}}" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">{{player.strPlayer}}</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="card mb-3" style="width: 100%;">
+                    <img src="{{ player.strThumb }}" class="card-img-top player-img" alt="...">
+                    <div class="card-body">
+                      <p class="card-text">Descripción: {{player.strDescriptionEN}}</p>
+                      <p class="card-text">Número: {{player.strNumber}}</p>
+                      <p class="card-text">Posición: {{player.strPosition}}</p>
+                      <p class="card-text">Peso: {{player.strWeight}}</p>
+                      <p class="card-text">Estatura: {{player.strHeight}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <h5 class="text-white bg-primary py-3 text-center my-2">Eventos</h5>
+      <div class="row">
+        <div class="col-6">
+          <h6 class="text-primary m-3 text-center">Últimos eventos</h6>
+          <table class="table table-bordered text-center" style="width: 100%">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Local</th>
+                <th scope="col">VS</th>
+                <th scope="col">Visitante</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let last of eventsLast.results">
+              <tr>
+                <th scope="row">{{last.strHomeTeam}}</th>
+                <th scope="row">{{last.intHomeScore}} - {{last.intAwayScore}}</th>
+                <th scope="row">{{last.strAwayTeam}}</th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-6">
+          <h6 class="text-primary m-3 text-center">Proximos eventos</h6>
+          <table class="table table-bordered text-center" style="width: 100%;">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Local</th>
+                <th scope="col">VS</th>
+                <th scope="col">Visitante</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let next of eventsNext.events">
+              <tr>
+                <th>{{next.strHomeTeam}}</th>
+                <th>{{next.dateEvent}} - {{next.strTime}}</th>
+                <th>{{next.strAwayTeam}}</th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h5 class="text-white bg-primary py-3 text-center my-2">Tabla de posiciones</h5>
+      <table class="table text-center">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Equipos</th>
+            <th scope="col">P. Jugados</th>
+            <th scope="col">P Ganados</th>
+            <th scope="col">P. Empatados</th>
+            <th scope="col">P. Perdidos</th>
+            <th scope="col">Goles a favor</th>
+            <th scope="col">Goles en contra</th>
+            <th scope="col">Diferecia de goles</th>
+            <th scope="col">Puntos Totales</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let position of positionTable.table ; let index = index">
+          <ng-container *ngIf="position.teamid == team.idTeam; then local; else other">
+          </ng-container>
+          <ng-template #local>
+            <tr class="table-primary">
+              <th scope="row">{{index+1}}</th>
+              <th>{{position.name}}</th>
+              <th>{{position.played}}</th>
+              <th>{{position.win}}</th>
+              <th>{{position.draw}}</th>
+              <th>{{position.lost}}</th>
+              <th>{{position.goalsfor}}</th>
+              <th>{{position.goalsagainst}}</th>
+              <th>{{position.goalsdifference}}</th>
+              <th>{{position.total}}</th>
+            </tr>
+          </ng-template>
+          <ng-template #other>
+            <tr>
+              <th scope="row">{{index+1}}</th>
+              <td>{{position.name}}</td>
+              <td>{{position.played}}</td>
+              <td>{{position.win}}</td>
+              <td>{{position.draw}}</td>
+              <td>{{position.loss}}</td>
+              <td>{{position.goalsfor}}</td>
+              <td>{{position.goalsagainst}}</td>
+              <td>{{position.goalsdifference}}</td>
+              <td>{{position.total}}</td>
+            </tr>
+          </ng-template>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
