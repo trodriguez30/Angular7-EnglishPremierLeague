@@ -11,26 +11,6 @@
     <div class="col-md-6">
       <div class="card-body">
         <h3 class="card-title">{{team.strTeam}}</h3>
-        <p class="card-text text-muted font-weight-bolder">Redes sociales:</p>
-        <div class="btn-group mr-2" role="group">
-          <button type="button" class="btn">
-            <a href="{{team.strWebsite}}">
-              Web Site
-            </a>
-          </button>
-          <button type="button" class="btn">
-            <a href="{{team.strFacebook}}">Facebook </a>
-          </button>
-          <button type="button" class="btn">
-            <a href="{{team.strTwitter}}">Twitter</a>
-          </button>
-          <button type="button" class="btn">
-            <a href="{{team.strInstagram}}">Instagram</a>
-          </button>
-          <button type="button" class="btn">
-            <a href="{{team.strYoutube}}">Youtube</a>
-          </button>
-        </div>
       </div>
     </div>
   </div>
@@ -108,7 +88,7 @@
     <div class="col-12">
       <h5 class="text-white bg-primary py-3 text-center my-2">Eventos</h5>
       <div class="row">
-        <div class="col-6">
+        <div class="col-md-6">
           <h6 class="text-primary m-3 text-center">Últimos eventos</h6>
           <table class="table table-bordered text-center" style="width: 100%">
             <thead class="thead-dark">
@@ -127,7 +107,7 @@
             </tbody>
           </table>
         </div>
-        <div class="col-6">
+        <div class="col-md-6">
           <h6 class="text-primary m-3 text-center">Proximos eventos</h6>
           <table class="table table-bordered text-center" style="width: 100%;">
             <thead class="thead-dark">
@@ -203,6 +183,30 @@
 
         </tbody>
       </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 text-center">
+        <h5 class="text-white bg-primary py-3 text-center my-2">Redes sociales</h5>
+      <div class="btn-group my-2" role="group">
+        <button type="button" class="btn">
+          <a href="{{team.strInstagram}}">Instagram</a>
+        </button>
+        <button type="button" class="btn">
+          <a href="{{team.strFacebook}}">Facebook </a>
+        </button>
+        <button type="button" class="btn">
+          <a href="{{team.strTwitter}}">Twitter</a>
+        </button>
+        <button type="button" class="btn">
+          <a href="{{team.strYoutube}}">Youtube</a>
+        </button>
+        <button type="button" class="btn">
+          <a href="{{team.strWebsite}}">
+            Web Site
+          </a>
+        </button>
+      </div>
     </div>
   </div>
 </div>

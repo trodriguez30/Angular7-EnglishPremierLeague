@@ -7,13 +7,17 @@ import { AppComponent } from './app.component';
 import { TeamCardComponent } from './team-card/team-card.component';
 import { TeamDetailComponent } from './team-detail/team-detail.component';
 import { TeamsListComponent } from './teams-list/teams-list.component';
+import { FavoriteTeamsComponent } from './favorite-teams/favorite-teams.component';
+import { TeamFavoriteCardComponent } from './team-favorite-card/team-favorite-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TeamCardComponent,
     TeamDetailComponent,
-    TeamsListComponent
+    TeamsListComponent,
+    FavoriteTeamsComponent,
+    TeamFavoriteCardComponent
   ],
   imports: [
     BrowserModule,

@@ -36,4 +36,5 @@ export class TeamService {
   public getPositionTable(){
     return this.httpClient.get(`${this.URL_API}lookuptable.php?l=4328&s=1920`);
   }
+
 }
